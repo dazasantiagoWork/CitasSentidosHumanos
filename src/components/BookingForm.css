@@ -1,0 +1,368 @@
+.booking-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 500px;
+    max-width: 90vw;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary-hover) 100%);
+    color: white;
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.card-header h2 {
+    color: white;
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+}
+
+.card-header p {
+    opacity: 0.9;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-body {
+    padding: var(--space-lg);
+}
+
+
+/* Form Groups */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-muted);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background-color: var(--color-input-bg);
+    transition: all 0.2s ease;
+    color: var(--color-text-main);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    /* Sky 500 with opacity */
+    background-color: white;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 0.875rem;
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-secondary-hover);
+}
+
+.btn-secondary {
+    padding: 0.875rem;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-input-bg);
+    color: var(--color-text-main);
+}
+
+/* Slots View */
+.slots-view h3 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.summary-text {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-lg);
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns */
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.slot-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: white;
+    transition: all 0.2s;
+}
+
+.slot-btn:hover {
+    border-color: var(--color-secondary);
+    background-color: var(--color-input-bg);
+}
+
+.slot-btn.active {
+    background-color: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
+}
+
+.slot-btn.active .slot-date,
+.slot-btn.active .slot-time {
+    color: white;
+}
+
+.slot-date {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+}
+
+.slot-time {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: var(--space-md);
+}
+
+/* Success View */
+.success-view {
+    text-align: center;
+    padding: var(--space-lg) 0;
+}
+
+.check-icon {
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-success);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto var(--space-md);
+}
+
+.success-view h3 {
+    color: var(--color-success);
+    margin-bottom: var(--space-sm);
+}
+
+.success-view p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+}
+
+.error-msg {
+    color: var(--color-error);
+    background-color: #fef2f2;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+    border: 1px solid #fecaca;
+}
+
+/* Calendar View */
+.view-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+/* React Calendar Customization */
+.react-calendar {
+    border: none !important;
+    font-family: var(--font-main) !important;
+    width: 100% !important;
+    background-color: white !important;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+}
+
+.react-calendar__navigation button {
+    color: var(--color-secondary) !important;
+    min-width: 44px;
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: var(--color-bg-body) !important;
+    border-radius: var(--radius-sm);
+}
+
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+    color: var(--color-text-muted);
+}
+
+.react-calendar__tile {
+    padding: 0.75em 0.5em;
+    background: none;
+    text-align: center;
+    line-height: 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: var(--color-bg-body);
+    color: var(--color-secondary);
+}
+
+.react-calendar__tile--now {
+    background: #fdf4ff !important;
+    color: #c026d3;
+}
+
+.react-calendar__tile--active {
+    background: var(--color-secondary) !important;
+    color: white !important;
+}
+
+/* Slots Section */
+.slots-section {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.slots-section h4 {
+    font-size: 1rem;
+    color: var(--color-text-main);
+    margin-bottom: var(--space-sm);
+    text-transform: capitalize;
+}
+
+.loading-spinner {
+    color: var(--color-secondary);
+    font-style: italic;
+    padding: var(--space-md);
+}
+
+.no-slots {
+    color: var(--color-text-muted);
+    font-style: italic;
+    padding: var(--space-sm);
+    background-color: #f8fafc;
+    border-radius: var(--radius-md);
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 cols for slots now */
+    gap: var(--space-sm);
+}
+
+.slot-btn {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.slot-btn.active {
+    background-color: var(--color-secondary);
+}
+
+/* Success View Updates */
+.success-details {
+    background-color: #f0fdf4;
+    /* Light green bg */
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    color: var(--color-text-main);
+    margin-bottom: var(--space-md) !important;
+    border: 1px solid #dcfce7;
+}
+
+.app-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: var(--space-sm);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
