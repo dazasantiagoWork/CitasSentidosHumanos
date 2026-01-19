@@ -5,10 +5,10 @@ import { es } from 'date-fns/locale';
 import 'react-calendar/dist/Calendar.css';
 import './BookingForm.css';
 
-const WEBHOOK_URL = 'https://n8n-production-6d0f.up.railway.app/webhook/agendamiento-landing';
+const WEBHOOK_URL = 'https://n8n-production-6d0f.up.railway.app/webhook/agendamiento-landing-sh';
 
 const BookingService = {
-    async fetchSlots(date, city) {
+    async fetchSlots(date, service) {
         try {
             const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
@@ -16,7 +16,7 @@ const BookingService = {
                 body: JSON.stringify({
                     action: 'get_slots',
                     date: format(date, 'yyyy-MM-dd'),
-                    city: city
+                    service: service
                 })
             });
 
@@ -57,7 +57,7 @@ export default function BookingForm() {
         name: '',
         phone: '',
         email: '',
-        city: ''
+        service: ''
     });
 
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -75,7 +75,7 @@ export default function BookingForm() {
 
     const handleInfoSubmit = (e) => {
         e.preventDefault();
-        if (!formData.name || !formData.phone || !formData.email || !formData.city) {
+        if (!formData.name || !formData.phone || !formData.email || !formData.service) { // Updated validation
             setError('Por favor completa todos los campos.');
             return;
         }
@@ -94,7 +94,7 @@ export default function BookingForm() {
         setHasSearched(true);
 
         try {
-            const slots = await BookingService.fetchSlots(date, formData.city);
+            const slots = await BookingService.fetchSlots(date, formData.service); // Updated to pass service
             setAvailableSlots(slots);
         } catch (err) {
             console.error(err);
@@ -130,7 +130,7 @@ export default function BookingForm() {
             name: '',
             phone: '',
             email: '',
-            city: ''
+            service: ''
         });
         setSelectedSlot(null);
         setAvailableSlots([]);
@@ -141,12 +141,12 @@ export default function BookingForm() {
         <div className="booking-card">
             <div className="card-header">
                 <img
-                    src="/logo-optica-marin.jpeg"
-                    alt="Logo Optica Marin"
+                    src="/logoCompletoSentidosHumanos.jpeg"
+                    alt="Logo Sentidos Humanos"
                     className="app-logo"
                 />
-                <h2>Citas Optometría</h2>
-                <p>Óptica Marín</p>
+                <h2>Agendamiento de Citas</h2>
+                <p>Sentidos Humanos</p>
             </div>
 
             <div className="card-body">
@@ -226,16 +226,18 @@ function StepInfo({ formData, onChange, onSubmit, error }) {
             </div>
 
             <div className="form-group">
-                <label>Ciudad</label>
+                <label>Servicio</label>
                 <select
-                    name="city"
-                    value={formData.city}
+                    name="service"
+                    value={formData.service}
                     onChange={onChange}
                     required
                 >
-                    <option value="">Seleccione una ciudad...</option>
-                    <option value="Tunja">Tunja</option>
-                    <option value="Duitama">Duitama</option>
+                    <option value="">Seleccione un servicio...</option>
+                    <option value="Psicología">Psicología</option>
+                    <option value="Medicina General">Medicina General</option>
+                    <option value="Medicina Alternativa">Medicina Alternativa</option>
+                    <option value="Terapia Física">Terapia Física</option>
                 </select>
             </div>
 
