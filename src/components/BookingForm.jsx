@@ -5,7 +5,7 @@ import { es } from 'date-fns/locale';
 import 'react-calendar/dist/Calendar.css';
 import './BookingForm.css';
 
-const WEBHOOK_URL = 'https://n8n-production-6d0f.up.railway.app/webhook/agendamiento-landing-sh';
+const WEBHOOK_URL = 'https://n8n-production-6d0f.up.railway.app/webhook-test/agendamiento-landing-sh';
 
 const BookingService = {
     async fetchSlots(date, service) {
