@@ -5,7 +5,7 @@ import { es } from 'date-fns/locale';
 import 'react-calendar/dist/Calendar.css';
 import './BookingForm.css';
 
-const WEBHOOK_URL = 'https://n8n-production-6d0f.up.railway.app/webhook-test/agendamiento-landing-sh';
+const WEBHOOK_URL = 'https://n8n-production-6d0f.up.railway.app/webhook/agendamiento-landing-sh';
 
 const BookingService = {
     async fetchSlots(date, service) {
@@ -235,9 +235,7 @@ function StepInfo({ formData, onChange, onSubmit, error }) {
                 >
                     <option value="">Seleccione un servicio...</option>
                     <option value="Psicología">Psicología</option>
-                    <option value="Medicina General">Medicina General</option>
                     <option value="Medicina Alternativa">Medicina Alternativa</option>
-                    <option value="Terapia Física">Terapia Física</option>
                 </select>
             </div>
 
